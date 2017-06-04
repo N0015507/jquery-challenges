@@ -14,7 +14,7 @@
    * Here's the documentation you need:
    * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
    */
-
+  var myStorage = localStorage;
   var saveButton = $('#save-button');
   var loadButton = $('#load-button');
 
@@ -33,4 +33,19 @@
   function setText(text) {
     return $('#save-me').val(text);
   }
+
+  saveButton.click(function(){
+      //console.log("save button clicked");
+        myStorage.setItem('mytext', getText());
+      //console.log(myStorage.getItem('mytext'));
+       $('#save-me').val("");
+  })
+
+  loadButton.click(function(){
+    //let tmpText = myStorage.getItem('mytext')
+    //console.log("load button clicked");
+        setText(myStorage.getItem('mytext'));
+  })
+
+
 })();

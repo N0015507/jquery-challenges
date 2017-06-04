@@ -42,6 +42,69 @@
   //code in here wont run until page loads
   $(function(){
 
+    let result = "" //initializing to empty for use in if statement
+
+
+    //grab a random number and return odd or even as the results of the shot
+    function shoot(){
+      let randomNumber = Math.floor(Math.random() * 10) + 1 ;
+        if (randomNumber % 2){
+          // console.log("this is an odd number");
+          result="odd";
+        } else {
+          // console.log("this is an even number");
+          result="even";
+        }
+    }
+    // console.log("result = " + result)
+    //team one shot counter
+    let teamOne = $('#teamone-shoot');
+    let teamOneCounter = $('#teamone-numshots');
+    let teamOneGoalCounter = $('#teamone-numhits');
+//var loadButton = $('#load-button');
+
+      teamOne.click(function(){
+          teamOneCounter.html(parseInt(teamOneCounter.html()) + 1) ;
+        shoot(); //take a shot
+        // console.log("teamOneShoots");
+          if (result == "even") {
+            // console.log(result)
+            teamOneGoalCounter.html(parseInt(teamOneGoalCounter.html()) + 1)  ;
+            //cheer.play();
+          }else{
+            //miss.play();
+          }
+        });
+
+    //team two shot counter
+    let teamTwo = $('#teamtwo-shoot');
+    let teamTwoCounter = $('#teamtwo-numshots');
+    let teamTwoGoalCounter = $('#teamtwo-numhits');
+
+    teamTwo.click(function(){
+        teamTwoCounter.html(parseInt(teamTwoCounter.html()) + 1);
+        shoot(); //take a shot
+        // console.log("teamTwoShoots");
+          if (result == "even") {
+            // console.log(result)
+            teamTwoGoalCounter.html(parseInt(teamTwoGoalCounter.html()) + 1);
+            //cheer.play();
+          }else{
+            //miss.play();
+          }
+        });
+    //reset button counter and shot counter reset to zero
+    let resetButton = $('#reset');
+    let numResets = $('#num-resets');
+
+
+    resetButton.click(function(){
+      numResets.html(parseInt(numResets.html()) + 1);
+      $("#teamtwo-numshots").html(0);
+      $("#teamone-numshots").html(0);
+      $("#teamone-numhits").html(0);
+      $("#teamtwo-numhits").html(0);
+    })
 
 
   })

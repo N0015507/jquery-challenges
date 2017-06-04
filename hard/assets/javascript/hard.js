@@ -36,6 +36,36 @@
    $(function(){
 
 
+      //1. Any time someone clicks on the title at the top "feed template,"
+      //   make the color of the "feed template" text change from black to red
+      //   and then from red to black when clicked again.
+         let feedTemp = $('.panel h1');
+         feedTemp.click (function(){
+         let colorNow = $(this).css("color");
+         //console.log(colorNow);
+           if (colorNow == "rgb(0, 0, 0)"){
+              $(this).css({color: "red"});
+           }else{
+              $(this).css({color: "black"});
+           }
+        })
+
+      // 2. The links on the side of the page – "your name," "section 1," "section 2," etc. –
+      //   hide every odd-numbered link in the menu.
+      $(".vertical-nav .section:nth-child(odd)").hide();
+
+      // 3. Change every instance of the word "bacon" on the page to be "LASER VISION"
+      $("p").each(function(){
+         let text = $(this).html();
+         $(this).html(text.replace(/Bacon/g, 'LASER VISION'));
+      });
+
+      //4. Delete the last two posts in the middle section (they have a CSS class "post"
+      $(".post:nth-last-child(1)").hide();
+      $(".post:nth-last-child(3)").hide();
+
+       //* 5. Remove the images in the right column
+      $('.large-3 p').hide();
 
    })
 
