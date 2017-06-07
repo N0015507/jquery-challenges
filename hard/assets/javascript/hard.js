@@ -61,12 +61,36 @@
       });
 
       //4. Delete the last two posts in the middle section (they have a CSS class "post"
-      $(".post:nth-last-child(1)").hide();
-      $(".post:nth-last-child(3)").hide();
+      $(".post:nth-last-child(1)").remove();
+      $(".post:nth-last-child(2)").remove();
 
        //* 5. Remove the images in the right column
-      $('.large-3 p').hide();
+      $('.large-3 p').remove();
 
+      //*Bonus - make a surprise
+      let tmpImg = $('.panel > a > img')
+      tmpImg.attr('src', 'assets/grumpy.jpeg');
+      tmpImg.click(function(){
+      animateDiv();
+      tmpImg.attr('src', 'assets/grumpy2.gif');
+      });
+
+      function makeNewPosition(){
+      // Get viewport dimensions (remove the dimension of the div)
+       var h = $(window).height() - 50;
+       var w = $(window).width() - 50;
+       var nh = Math.floor(Math.random() * h);
+       var nw = Math.floor(Math.random() * w);
+       return [nh,nw];
+       }
+
+      function animateDiv(){
+         console.log("in");
+          var newq = makeNewPosition();
+          $(".large-12").animate({ top: newq[0], left: newq[1] }, function(){
+            animateDiv();
+          });
+       };
    })
 
  })();

@@ -69,7 +69,8 @@
         // console.log("teamOneShoots");
           if (result == "even") {
             // console.log(result)
-            teamOneGoalCounter.html(parseInt(teamOneGoalCounter.html()) + 1)  ;
+            teamOneGoalCounter.html(parseInt(teamOneGoalCounter.html()) + 1);
+            $('body').css('background', 'lightblue');
             //cheer.play();
           }else{
             //miss.play();
@@ -88,6 +89,7 @@
           if (result == "even") {
             // console.log(result)
             teamTwoGoalCounter.html(parseInt(teamTwoGoalCounter.html()) + 1);
+            $('body').css('background', 'lightsalmon');
             //cheer.play();
           }else{
             //miss.play();
@@ -104,6 +106,7 @@
       $("#teamone-numshots").html(0);
       $("#teamone-numhits").html(0);
       $("#teamtwo-numhits").html(0);
+      $('body').css('background', 'white');
     })
 
 

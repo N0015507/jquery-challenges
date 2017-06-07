@@ -25,7 +25,6 @@
   function getText() {
     return $('#save-me').val();
   }
-
   /**
    * Puts different text
    * @param {String} text the stuff you want to put in the box
@@ -35,9 +34,9 @@
   }
 
   saveButton.click(function(){
-      //console.log("save button clicked");
+      // console.log("save button clicked");
         myStorage.setItem('mytext', getText());
-      //console.log(myStorage.getItem('mytext'));
+      // console.log(myStorage.getItem('mytext'));
        $('#save-me').val("");
   })
 
